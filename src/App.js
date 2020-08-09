@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom"
+import NavBar from './components/NavBar'
+import routes from './routes'
+import {ScreenName} from './constants/screenName.constant'
+import './App.css'
+
+const tabs = Object.values(ScreenName)
+			.filter(screenName => (screenName !== ''))
+
+const routeNames = {}
+Object.values(ScreenName)
+.map(screenName => Object.assign(routeNames, {[screenName]: '/' + screenName}))
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router
+		routes={routeNames}>
+		<div className="App">
+			<NavBar tabs={tabs}/>
+			<Switch>
+				{
+					Object.keys(routes)
+					.reverse()
+					.map(path => {
+						const Screen = routes[path]
+						return (
+							<Route path={path} key={path}>
+								{props => <Screen {...props}/>}
+							</Route>
+						)
+					})
+				}
+			</Switch>
+		</div>
+		</Router>
+	);
 }
 
 export default App;

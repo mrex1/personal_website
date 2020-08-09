@@ -1,0 +1,16 @@
+.logo {
+    width: 120px;
+    height: 34px;
+    font-size: 25px;
+    font-family: consolas;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.logo a{
+    text-decoration: inherit;
+    color: inherit;
+}

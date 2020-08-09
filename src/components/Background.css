@@ -1,0 +1,36 @@
+.Background {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.bottom-eclipse {
+    height: 400px;
+    width: 800px;
+    border-radius: 50%;
+    position: absolute;
+    left: -134px;
+    bottom: -280px;
+}
+
+.bottom-eclipse.reversed {
+    bottom: -200px;
+    right: -350px;
+    left: unset;
+}
+
+.top-eclipse {
+    height: 400px;
+    width: 800px;
+    border-radius: 50%;
+    position: absolute;
+    right: -200px;
+    top: -200px;
+}
+
+.top-eclipse.reversed {
+    left: -290px;
+    top: -250px;
+    right: unset;
+}
