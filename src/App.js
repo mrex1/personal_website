@@ -9,17 +9,12 @@ import routes from './routes'
 import {ScreenName} from './constants/screenName.constant'
 import './App.css'
 
-const tabs = Object.values(ScreenName)
-			.filter(screenName => (screenName !== ''))
-
-const routeNames = {}
-Object.values(ScreenName)
-.map(screenName => Object.assign(routeNames, {[screenName]: '/' + screenName}))
-
+const tabs = Object.keys(ScreenName)
+			.filter(key => (key !== 'home'))
+			.map(key => ScreenName[key])
 function App() {
 	return (
-		<Router
-		routes={routeNames}>
+		<Router>
 		<div className="App">
 			<NavBar tabs={tabs}/>
 			<Switch>

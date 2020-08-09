@@ -1,9 +1,11 @@
 import screens from '../screens'
-
+import {ScreenName} from '../constants/screenName.constant'
+import {nameToPath} from '../utils/namePathTranslation'
 const routes = {}
 
-Object.keys(screens).map((screenName: string) => 
-    Object.assign(routes, {['/' + screenName.toLowerCase()]: (screens as any)[screenName]})
+Object.values(ScreenName)
+.map((screenName) => 
+    Object.assign(routes, {[nameToPath(screenName)]: screens[screenName]})
 )
 
 export default routes

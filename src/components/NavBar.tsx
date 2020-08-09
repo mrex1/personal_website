@@ -3,11 +3,12 @@ import './NavBar.css'
 import Logo from './Logo'
 import {Link} from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
-import {pathToName} from '../utils/namePathTranslation'
+import {pathToName, nameToPath} from '../utils/namePathTranslation'
 import {colors} from '../constants/color.constant'
+import {ScreenName} from '../constants/screenName.constant'
 
 export interface Props {
-    tabs: string[];
+    tabs: ScreenName[];
 }
 
 const NavBar = ({tabs}: Props) => {
@@ -33,7 +34,7 @@ const NavBar = ({tabs}: Props) => {
             {
                 tabs.map((name) => (
                     <Link style={{color: hover[name] === true || curScreenName === name ?
-                        color.textSecondary : color.inactive}} to={name} key={name}
+                        color.textSecondary : color.inactive}} to={nameToPath(name)} key={name}
                     onMouseOver={hoverHandler(name)} onMouseLeave={hoverEndHandler(name)}>{name}</Link>
                 ))
             }
