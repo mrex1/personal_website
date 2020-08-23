@@ -1,22 +1,42 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route
+	HashRouter,
+	Switch,
+	Route
 } from "react-router-dom"
+import Background from './components/Background'
 import NavBar from './components/NavBar'
+import NextBtn from './components/NextBtn'
 import routes from './routes'
-import {ScreenName} from './constants/screenName.constant'
+import {ScreenName} from './constants'
 import './App.css'
 
 const tabs = Object.keys(ScreenName)
 			.filter(key => (key !== 'home'))
 			.map(key => ScreenName[key])
+
+function useTransition() {
+	const [ending, setEnding] = useState(false)
+	const goto = useCallback((navCallback) => {
+        setEnding(true)
+        setTimeout(() => {
+            navCallback()
+            setEnding(false)
+        }, 300)
+	}, [])
+	return [ending, goto]
+}
+
 function App() {
+	const [ending, goto] = useTransition()
+	
 	return (
-		<Router>
-		<div className="App">
-			<NavBar tabs={tabs}/>
+		<HashRouter basename='/'>
+		<Background start={!ending}>
+			<NavBar tabs={tabs} goto={goto}/>
+            <NextBtn
+			loading={ending}
+			goto={goto}/>
 			<Switch>
 				{
 					Object.keys(routes)
@@ -25,14 +45,14 @@ function App() {
 						const Screen = routes[path]
 						return (
 							<Route path={path} key={path}>
-								{props => <Screen {...props}/>}
+								{props => <Screen {...props} goto={goto}/>}
 							</Route>
 						)
 					})
 				}
 			</Switch>
-		</div>
-		</Router>
+		</Background>
+		</HashRouter>
 	);
 }
 

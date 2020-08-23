@@ -8,9 +8,6 @@
     align-items: center;
     cursor: pointer;
     transition: 0.5s;
-}
-
-.logo a{
     text-decoration: inherit;
     color: inherit;
 }

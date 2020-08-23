@@ -1,0 +1,56 @@
+.project-block-container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    border-radius: 30px;
+    overflow: hidden;
+    min-width: 330px;
+    max-width: 330px;
+    margin-right: 40px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+.project-block-image {
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    mask-image: linear-gradient(rgba(0, 0, 0, 0.7), transparent);
+}
+
+.project-block-image:hover {
+    width: 200%;
+    margin-left: -50%;
+}
+
+.project-block-title {
+    padding: 5px 10px;
+}
+
+.project-block-content {
+    padding: 5px 10px;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.project-block-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 20px;
+}
+
+.project-block-btn {
+    display: inline-block;
+    border: none;
+    outline: none;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 8px 20px;
+    border-radius: 30px;
+    background-color: transparent;
+    transition: 0.3s;
+}

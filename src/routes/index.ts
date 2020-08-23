@@ -1,5 +1,5 @@
 import screens from '../screens'
-import {ScreenName} from '../constants/screenName.constant'
+import {ScreenName} from '../constants'
 import {nameToPath} from '../utils/namePathTranslation'
 const routes = {}
 

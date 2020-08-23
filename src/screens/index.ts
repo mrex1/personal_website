@@ -4,7 +4,7 @@ import Skill from './Skill'
 import Experience from './Experience'
 import Project from './Project'
 import Contact from './Contact'
-import {ScreenName} from '../constants/screenName.constant'
+import {ScreenName} from '../constants'
 
 const screens = {
     [ScreenName.home]: Home,

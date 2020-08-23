@@ -1,0 +1,41 @@
+.next-btn {
+    background-color: white;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 28px;
+    text-decoration: inherit;
+    height: 65px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 100px;
+    box-shadow: #00000030 3px 3px 15px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    outline: none;
+}
+
+.next-btn .MuiCircularProgress-colorPrimary {
+    color: inherit;
+}
+
+.next-text {
+    padding-right: 0px;
+    max-width: 0px;
+    transition: 0.5s;
+    color: transparent;
+}
+
+.next-btn:hover .next-text {
+    padding-right: 10px;
+    max-width: 200px;
+    color: inherit;
+}
+
+.next-btn:hover .next-text.loading {
+    max-width: 0px;
+    color: transparent;
+    transition: 0.2s;
+    padding-right: 0px;
+}

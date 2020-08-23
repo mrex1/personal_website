@@ -1,5 +1,18 @@
 import {ScreenName} from './screenName.constant'
 
+export type isScreenReversed = {
+    [key in ScreenName]: boolean;
+}
+
+export const reverseMap: isScreenReversed = {
+    [ScreenName.home]: false,
+    [ScreenName.about]: true,
+    [ScreenName.skill]: false,
+    [ScreenName.experience]: true,
+    [ScreenName.project]: false,
+    [ScreenName.contact]: true
+}
+
 export interface Color {
     primary: string;
     secondary: string;
@@ -8,6 +21,7 @@ export interface Color {
     inactive: string;
     logoBack: string;
     logoText: string;
+    nextBtn?: string;
 }
 
 export type ColorForScreen = {
@@ -31,7 +45,8 @@ export const colors: ColorForScreen = {
         textSecondary: '#FF0000',
         inactive: '#F1F1F1',
         logoBack: '#FFAEAE',
-        logoText: 'white'
+        logoText: 'white',
+        nextBtn: '#FF0000'
     },
     [ScreenName.skill]: {
         primary: 'white',
@@ -40,7 +55,8 @@ export const colors: ColorForScreen = {
         textSecondary: 'white',
         inactive: '#DCDCDC',
         logoBack: '#0022FF',
-        logoText: 'white'
+        logoText: 'white',
+        nextBtn: '#0022FF'
     },
     [ScreenName.experience]: {
         primary: '#9FECFF',
@@ -49,24 +65,27 @@ export const colors: ColorForScreen = {
         textSecondary: '#034150',
         inactive: 'white',
         logoBack: '#9FECFF',
-        logoText: 'white'
+        logoText: 'white',
+        nextBtn: '#034150'
     },
     [ScreenName.project]: {
         primary: '#60026E',
-        secondary: 'white',
-        textPrimary: 'black',
+        secondary: '#2f2f2f',
+        textPrimary: 'rgb(211, 181, 255)',
         textSecondary: '#3acd4a',
-        inactive: '#DCDCDC',
+        inactive: 'grey',
         logoBack: 'black',
-        logoText: '#60026E'
+        logoText: '#3acd4a',
+        nextBtn: '#60026E'
     },
     [ScreenName.contact]: {
         primary: '#61B48B',
-        secondary: 'white',
+        secondary: 'transparent',
         textPrimary: 'black',
-        textSecondary: '#034150',
+        textSecondary: '#46FFBB',
         inactive: 'white',
-        logoBack: '#61B48B',
-        logoText: 'white'
+        logoBack: 'white',
+        logoText: '#61B48B',
+        nextBtn: '#61B48B'
     }
 }

@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+[class^="rm-text"] {
+  font-family: Arial, Helvetica, sans-serif
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.rm-text-h1 {
+  font-size: 55px;
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.rm-text-h2 {
+  font-size: 39px;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.rm-text-h3 {
+  font-size: 31px;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.rm-text-1 {
+  font-size: 39px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rm-text-2 {
+  font-size: 31px;
+}
+
+.rm-text-3 {
+  font-size: 22px;
+}
+
+.rm-text-4 {
+  font-size: 18px;
+}
+
+.rm-text-5 {
+  font-size: 15px;
+}
+
+.rm-text-6 {
+  font-size: 13px;
+}
+
+.rm-typed-anime {
+  overflow: hidden;
+  border-right: 2px solid black;
+  white-space: nowrap;
+  opacity: 0;
+  margin: 0 auto;
+  animation: 
+    typing 1.5s steps(18, end) forwards,
+    blink-caret .75s step-end infinite;
+}
+
+.rm-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { opacity: 1; width: 0% }
+  to { opacity: 1; width: 100%;}
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+
+@keyframes increase-width {
+  from { max-width: 0 }
+  to { max-width: 100%;}
 }

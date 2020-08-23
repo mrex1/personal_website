@@ -1,18 +1,19 @@
 import React from 'react'
 import './Logo.css'
-import {Link} from 'react-router-dom'
-import {nameToPath} from '../utils/namePathTranslation'
-import {ScreenName} from '../constants/screenName.constant'
 
 export interface Props {
     bgColor: string;
     textColor: string;
+    goHome: () => void;
 }
 
-const Logo = ({bgColor, textColor}: Props) => {
+const Logo = ({bgColor, textColor, goHome}: Props) => {
     return (
-        <div className='logo' style={{backgroundColor: bgColor, color: textColor}}>
-            <Link to={nameToPath(ScreenName.home)}>REX M0</Link>
+        <div
+        className='logo'
+        style={{backgroundColor: bgColor, color: textColor}}
+        onClick={goHome}>
+            REX M0
         </div>
     )
 }

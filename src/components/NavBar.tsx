@@ -1,17 +1,17 @@
 import React, {useState, useCallback} from 'react'
 import './NavBar.css'
 import Logo from './Logo'
-import {Link} from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 import {pathToName, nameToPath} from '../utils/namePathTranslation'
-import {colors} from '../constants/color.constant'
-import {ScreenName} from '../constants/screenName.constant'
+import {colors, ScreenName} from '../constants'
 
 export interface Props {
     tabs: ScreenName[];
+    goto: (callback: () => void) => void;
 }
 
-const NavBar = ({tabs}: Props) => {
+const NavBar = ({tabs, goto}: Props) => {
+    const history = useHistory()
     const [hover, setHover] = useState<any>({})
     const {pathname} = useLocation()
     const curScreenName = pathToName(pathname)
@@ -24,18 +24,24 @@ const NavBar = ({tabs}: Props) => {
         setHover((hover: any) => ({...hover, [name]: false}))
     }, [])
 
+    const getNavigateHandler = useCallback((screen: ScreenName) => () => {
+        if (curScreenName !== screen) {
+            goto(() => history.push(nameToPath(screen)))
+        }
+    }, [goto, history, curScreenName])
+
     const color = colors[curScreenName]
 
     return (
         <div className='navbar-container'>
-            <Logo bgColor={color.logoBack} textColor={color.logoText}/>
+            <Logo bgColor={color.logoBack} textColor={color.logoText} goHome={getNavigateHandler(ScreenName.home)}/>
             <div className='navbar-space'/>
             <div className='navbar-tabs'>
             {
                 tabs.map((name) => (
-                    <Link style={{color: hover[name] === true || curScreenName === name ?
-                        color.textSecondary : color.inactive}} to={nameToPath(name)} key={name}
-                    onMouseOver={hoverHandler(name)} onMouseLeave={hoverEndHandler(name)}>{name}</Link>
+                    <div style={{color: hover[name] === true || curScreenName === name ?
+                        color.textSecondary : color.inactive}} onClick={getNavigateHandler(name)} key={name}
+                    onMouseOver={hoverHandler(name)} onMouseLeave={hoverEndHandler(name)}>{name}</div>
                 ))
             }
             </div>
