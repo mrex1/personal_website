@@ -34,7 +34,7 @@ const About = ({history, goto}: Props) => {
         <span>enjoy writing clean and simple code</span>
     ]
     return (
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%', marginLeft: 200, zIndex: 1}}>
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%', marginLeft: '10%', zIndex: 1}}>
             <div className='rm-text-h1 animate__animated animate__fadeInUp' style={{marginBottom: 20}}>
                 I build
                 <span style={{color: color.textSecondary}}> apps</span> and
