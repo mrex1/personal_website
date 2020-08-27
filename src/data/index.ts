@@ -36,7 +36,7 @@ export const myExperiences: Experiences = new Experiences([
         company: 'Chun Shing Development ( Hong Kong ) Limited',
         companySite: 'http://www.chunshing.hk/en/aboutus/',
         description: [
-            'Built two mobile apps for a iot project with React Native',
+            'Built two mobile apps for an iot project with React Native',
             'One of the apps used for visualizing data collected from the iot devices',
             'Another app collects data from a iot device, and further upload it to the server',
             'Learned JavaScript and React Native in a month, and built the two apps'
@@ -62,8 +62,8 @@ export const myExperiences: Experiences = new Experiences([
         company: 'Avo Insurance Company Limited',
         companySite: 'https://www.heyavo.com/en/about/',
         description: [
-            'Mainly contributed in building Avo\'s website with Vue.',
-            'Wrote NodeJS programs to crawl data for other teams',
+            'Mainly contributed in building Avo\'s website with Vue.js',
+            'Wrote NodeJS programs to scrap data for other teams to conduct product researches',
             'Built an internal tool that allows non-programmers to edit email templates'
         ],
         startDate: new Date('2019-06-12'),
@@ -86,18 +86,6 @@ export const myProjects: Project[] = [
     {
         name: 'Sorting visualisation',
         description: 'Visualise sorting algorithms with the HTML canvas element using plain JavaScript',
-        image: sortPng,
-        github: 'https://github.com/mrex1/sorting_visualization/'
-    },
-    {
-        name: 'Sorting visualisation',
-        description: 'Visualise sorting algorithms with the HTML canvas element using plain JavaScript',
-        image: sortPng,
-        github: 'https://github.com/mrex1/sorting_visualization/'
-    },
-    {
-        name: 'Sorting visualisation',
-        description: 'Visualise sorting algorithms with the HTML canvas element using plain JavaScript, Visualise sorting algorithms with the HTML canvas element using plain JavaScript, Visualise sorting algorithms with the HTML canvas element using plain JavaScript',
         image: sortPng,
         github: 'https://github.com/mrex1/sorting_visualization/'
     }
