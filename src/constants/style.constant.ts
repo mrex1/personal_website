@@ -22,6 +22,10 @@ export interface Color {
     logoBack: string;
     logoText: string;
     nextBtn?: string;
+    drawerBtn?: string;
+    drawerBg?: string;
+    drawerText?: string;
+    drawerActive?: string;
 }
 
 export type ColorForScreen = {
@@ -36,7 +40,8 @@ export const colors: ColorForScreen = {
         textSecondary: '#0022FF',
         inactive: '#A3A3A3',
         logoBack: 'black',
-        logoText: '#FFAA00'
+        logoText: '#FFAA00',
+        drawerText: 'black'
     },
     [ScreenName.about]: {
         primary: '#FFAEAE',
@@ -56,7 +61,9 @@ export const colors: ColorForScreen = {
         inactive: '#DCDCDC',
         logoBack: '#0022FF',
         logoText: 'white',
-        nextBtn: '#0022FF'
+        nextBtn: '#0022FF',
+        drawerBg: '#0022FF',
+        drawerBtn: '#7fffb7'
     },
     [ScreenName.experience]: {
         primary: '#9FECFF',

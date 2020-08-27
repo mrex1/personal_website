@@ -6,12 +6,15 @@
     overflow: hidden;
     min-width: 330px;
     max-width: 330px;
+    min-height: 380px;
+    max-height: 380px;
     margin-right: 40px;
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
 }
 
 .project-block-image {
-    height: 230px;
+    max-height: 230px;
+    min-height: 230px;
     width: 100%;
     object-fit: cover;
     transition: 0.5s;
@@ -25,6 +28,8 @@
 
 .project-block-title {
     padding: 5px 10px;
+    font-size: 31px;
+    font-weight: bold;
 }
 
 .project-block-content {
@@ -53,4 +58,11 @@
     border-radius: 30px;
     background-color: transparent;
     transition: 0.3s;
+}
+
+@media only screen and (max-width: 700px) {
+    .project-block-container {
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
 }

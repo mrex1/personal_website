@@ -15,7 +15,7 @@ const ProjectBlock = ({project}: Props) => {
     return (
         <div className='project-block-container' style={{color: color.textPrimary}}>
             <img className='project-block-image' alt={project.name} src={project.image}/>
-            <div className='rm-text-h3 project-block-title'>{project.name}</div> 
+            <div className='project-block-title'>{project.name}</div> 
             <div className='rm-text-5 project-block-content'>{project.description}</div>
             <div className='project-block-action'>
                 {

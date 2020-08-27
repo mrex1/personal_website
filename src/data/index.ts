@@ -88,5 +88,17 @@ export const myProjects: Project[] = [
         description: 'Visualise sorting algorithms with the HTML canvas element using plain JavaScript',
         image: sortPng,
         github: 'https://github.com/mrex1/sorting_visualization/'
+    },
+    {
+        name: 'Sorting visualisation',
+        description: 'Visualise sorting algorithms with the HTML canvas element using plain JavaScript',
+        image: sortPng,
+        github: 'https://github.com/mrex1/sorting_visualization/'
+    },
+    {
+        name: 'Sorting visualisation',
+        description: 'Visualise sorting algorithms with the HTML canvas element using plain JavaScript, Visualise sorting algorithms with the HTML canvas element using plain JavaScript, Visualise sorting algorithms with the HTML canvas element using plain JavaScript',
+        image: sortPng,
+        github: 'https://github.com/mrex1/sorting_visualization/'
     }
 ]

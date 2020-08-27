@@ -1,0 +1,18 @@
+.Experience-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.Experience-inner-container {
+    height: 70%;
+    width: 85%;
+}
+
+@media only screen and (max-width: 700px) {
+    .Experience-inner-container {
+        width: 100%;
+    }
+}

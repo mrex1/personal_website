@@ -1,0 +1,30 @@
+.Project-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Project-inner-container {
+    position: relative;
+    padding: 5;
+    overflow: auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start
+}
+
+@media only screen and (max-width: 700px) {
+    .Project-inner-container {
+        margin-top: 80px;
+        width: 100%;
+        height: calc(100% - 170px);
+        flex-direction: column;
+    }
+
+    .Project-container {
+        align-items: flex-start;
+        justify-content: center;
+    }
+}

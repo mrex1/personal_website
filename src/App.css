@@ -2,6 +2,12 @@
   font-family: Arial, Helvetica, sans-serif
 }
 
+.rm-emoji {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-right: 5px;
+}
+
 .rm-text-h1 {
   font-size: 55px;
   font-weight: bold;
@@ -15,6 +21,11 @@
 .rm-text-h3 {
   font-size: 31px;
   font-weight: bold;
+}
+
+.rm-text-3 .rm-emoji{
+  height: 22px;
+  width: 22px;
 }
 
 .rm-text-1 {
@@ -39,6 +50,35 @@
 
 .rm-text-6 {
   font-size: 13px;
+}
+
+@media only screen and (max-width: 700px) {
+  .rm-text-h1 {
+    font-size: 9vw;
+    font-weight: bold;
+  }
+  
+  .rm-text-h2 {
+    font-size: 7vw;
+    font-weight: bold;
+  }
+  
+  .rm-text-h3 {
+    font-size: 5vw;
+    font-weight: bold;
+  }
+  
+  .rm-text-1 {
+    font-size: 5vw;
+  }
+  
+  .rm-text-2 {
+    font-size: 20px;
+  }
+
+  .rm-text-3 {
+    font-size: 18px;
+  }
 }
 
 .rm-typed-anime {
