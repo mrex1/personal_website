@@ -100,7 +100,7 @@ export const myProjects: Project[] = [
         image: personalWeb,
         github: 'https://github.com/mrex1/personal_website',
         action: {
-            path: '/',
+            path: 'https://mrex1.github.io/personal_website',
             title: 'Open'
         }
     }
