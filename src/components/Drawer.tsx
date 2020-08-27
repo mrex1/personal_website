@@ -43,7 +43,7 @@ const Drawer = ({tabs, currentScreen, goto}: Props) => {
                         key={keyPrefix + 'drawer' + i}
                         className='rm-text-h2'
                         onMouseOver={hoverHandler(tab)}
-                        onMouseLeave={hoverLeaveHandler}
+                        onMouseLeave={hoverLeaveHandler()}
                         style={{color: (tab === currentScreen || tab === hoveringTab) ? color.textSecondary : drawerInactiveLinkColor,
                         textDecoration: 'none',
                         marginTop: 30}}
