@@ -19,22 +19,25 @@ const ProjectBlock = ({project}: Props) => {
             <div className='rm-text-5 project-block-content'>{project.description}</div>
             <div className='project-block-action'>
                 {
-                project.github && 
+                    project.github && 
                     <Link path={project.github} style={{color: color.textSecondary}}>
                         <GitHubIcon/>
                     </Link>
                 }
                 <div style={{flex: 1}}/>
-                <Link
-                className='project-block-btn'
-                onMouseOver={() => setHover(true)}
-                onMouseOut={() => setHover(false)}
-                style={{
-                    border: '2px solid ' + color.textSecondary,
-                    color: hover ? 'black' : color.textSecondary,
-                    backgroundColor: hover ? color.textSecondary : 'transparent'
-                }}
-                path='https://i.cs.hku.hk/~cfmo/sorting_visualization/'>Play</Link>
+                {
+                    project.action &&
+                    <Link
+                    className='project-block-btn'
+                    onMouseOver={() => setHover(true)}
+                    onMouseOut={() => setHover(false)}
+                    style={{
+                        border: '2px solid ' + color.textSecondary,
+                        color: hover ? 'black' : color.textSecondary,
+                        backgroundColor: hover ? color.textSecondary : 'transparent'
+                    }}
+                    path={project.action.path}>{project.action.title}</Link>
+                }
             </div> 
         </div>
     )

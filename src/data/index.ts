@@ -1,5 +1,6 @@
 import {Skill, SkillCategory, SkillLevel, Experiences, Project} from '../models'
 import sortPng from '../images/sorting_visual.png'
+import personalWeb from '../images/personalWeb.png'
 
 export type Skills = {[val in SkillCategory]: Skill[]}
 
@@ -87,6 +88,20 @@ export const myProjects: Project[] = [
         name: 'Sorting visualisation',
         description: 'Visualise sorting algorithms with the HTML canvas element using plain JavaScript',
         image: sortPng,
-        github: 'https://github.com/mrex1/sorting_visualization/'
+        github: 'https://github.com/mrex1/sorting_visualization/',
+        action: {
+            path: 'https://i.cs.hku.hk/~cfmo/sorting_visualization/',
+            title: 'Play'
+        }
+    },
+    {
+        name: 'Personal website',
+        description: 'My very first personal website built with React',
+        image: personalWeb,
+        github: 'https://github.com/mrex1/personal_website',
+        action: {
+            path: '/',
+            title: 'Open'
+        }
     }
 ]
