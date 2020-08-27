@@ -14,6 +14,7 @@ const keyPrefix = Math.random() + ''
 
 const Drawer = ({tabs, currentScreen, goto}: Props) => {
     const [show, setShow] = useState(false)
+    const [hoveringTab, setHoveringTab] = useState<ScreenName | null>(null)
     const color = colors[currentScreen]
     const closeDrawer = useCallback(() => {
         setShow(false)
@@ -21,6 +22,12 @@ const Drawer = ({tabs, currentScreen, goto}: Props) => {
     const toggleDrawer = useCallback(() => {
         setShow(!show)
     }, [show])
+    const hoverHandler = useCallback((tab) => () =>
+        setHoveringTab(tab)
+    , [])
+    const hoverLeaveHandler = useCallback(() => () =>
+        setHoveringTab(null)
+    , [])
 
     const drawerBtnColor = color.drawerBtn ? color.drawerBtn : color.textSecondary
     const drawerInactiveLinkColor = color.drawerText ? color.drawerText : color.inactive
@@ -35,7 +42,9 @@ const Drawer = ({tabs, currentScreen, goto}: Props) => {
                         <Link
                         key={keyPrefix + 'drawer' + i}
                         className='rm-text-h2'
-                        style={{color: tab === currentScreen ? color.textSecondary : drawerInactiveLinkColor,
+                        onMouseOver={hoverHandler(tab)}
+                        onMouseLeave={hoverLeaveHandler}
+                        style={{color: (tab === currentScreen || tab === hoveringTab) ? color.textSecondary : drawerInactiveLinkColor,
                         textDecoration: 'none',
                         marginTop: 30}}
                         screen={tab}
