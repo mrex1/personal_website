@@ -30,6 +30,7 @@
 
 .drawer-btn-line.mid-line {
     width: 100%;
+    transform: rotate(180deg);
 }
 
 .drawer-btn-line.last-line {
