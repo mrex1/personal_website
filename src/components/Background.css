@@ -1,37 +1,52 @@
 .Background {
     height: 100vh;
     width: 100vw;
+    min-height: 500px;
     position: relative;
     overflow: hidden;
     transition: 0.3s;
 }
 
 .bottom-eclipse {
-    height: 47vh;
-    width: 52vw;
+    height: 400px;
+    width: 800px;
     border-radius: 50%;
     position: absolute;
-    left: -9vw;
-    bottom: -32vh;
+    left: -134px;
+    bottom: -280px;
 }
 
 .bottom-eclipse.reversed {
-    bottom: -23vh;
-    right: -23vw;
+    bottom: -250px;
+    right: -25vw;
+    width: 50vw;
+    height: 400px;
     left: unset;
 }
 
 .top-eclipse {
-    height: 46vh;
-    width: 52vw;
+    height: 400px;
+    width: 800px;
     border-radius: 50%;
     position: absolute;
-    right: -13vw;
-    top: -23vh;
+    right: -200px;
+    top: -200px;
 }
 
 .top-eclipse.reversed {
-    left: -19vw;
-    top: -29vh;
+    height: 400px;
+    width: 50vw;
+    left: -25vw;
+    top: -275px;
     right: unset;
+}
+
+@media only screen and (max-width: 740px) {
+    .top-eclipse {
+        display: none;
+    }
+
+    .bottom-eclipse {
+        display: none;
+    }
 }

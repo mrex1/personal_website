@@ -1,0 +1,75 @@
+.drawer-btn {
+    height: 34px;
+    width: 34px;
+    right: 22px;
+    position: fixed;
+    cursor: pointer;
+    transition: .6s;
+}
+
+.drawer-btn.show {
+    right: 255px;
+}
+
+
+.drawer-btn-line {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    transition: .5s;
+    right: 0px;
+}
+
+.drawer-btn-line.first-line {
+    transform: rotate(225deg);
+    width: 60%;
+    top: 9px;
+    right: -3px;
+}
+
+.drawer-btn-line.mid-line {
+    width: 100%;
+}
+
+.drawer-btn-line.last-line {
+    transform: rotate(135deg);
+    width: 60%;
+    top: 22px !important;
+    right: -3px;
+}
+
+.drawer-container {
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    right: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color: white;
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.drawer-container.show {
+    right: 0px;
+    padding-right: 22px;
+}
+
+.drawer-background-mask {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.drawer-background-mask.show {
+    opacity: 1;
+    width: 100%;
+}

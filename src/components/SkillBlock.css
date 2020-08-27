@@ -9,6 +9,12 @@
     margin: 15px 30px;
 }
 
+@media only screen and (max-width: 700px) {
+    .skill-block-container {
+        width: 280px;
+    }
+}
+
 .skill-block-category {
     margin-bottom: 10px;
     font-size: 23px;

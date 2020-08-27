@@ -1,7 +1,10 @@
 import React from 'react'
 import {colors, ScreenName} from '../constants'
 import Link from '../components/Link'
-import LabelIcon from '@material-ui/icons/Label'
+import GraducationCap from '../images/graduationCap.png'
+import SmileWithHeart from '../images/smileWithHeart.png'
+import Suitcase from '../images/suitcase.png'
+import './About.css'
 
 export interface Props{
     goto: (callback: () => void) => void;
@@ -13,8 +16,9 @@ const keyPrefix = Math.random() + ''
 const About = ({history, goto}: Props) => {
     const color = colors[ScreenName.about]
     const details = [
-        <span>
-            {`majoring at `}
+        <div style={{display: 'flex'}}>
+            <img src={GraducationCap} alt='' className='rm-emoji'/>
+            <div>{`Majoring at `}
             <Link
             path='https://www.eee.hku.hk/study/undergraduate/computer-engineering/'
             style={{color: color.textSecondary}}>computer engineering</Link>
@@ -22,28 +26,28 @@ const About = ({history, goto}: Props) => {
             <Link
             path='https://www.hku.hk/'
             style={{color: color.textSecondary}}>HKU</Link>
-            , graduating in June 2021
-        </span>,
-        <span>
-        {'Have done '}
+            , graduating in June 2021</div>
+        </div>,
+        <div style={{display: 'flex'}}>
+        <img src={Suitcase} alt='' className='rm-emoji'/>
+        <div>{'Did '}
         <Link
         screen={ScreenName.experience}
         goto={goto}
         style={{color: color.textSecondary}}>three internships</Link>
-        {', mainly involved in front-end development'}</span>,
-        <span>enjoy writing clean and simple code</span>
+        {', mainly involved in front-end development'}</div></div>,
+        <div style={{display: 'flex'}}><img src={SmileWithHeart} alt='' className='rm-emoji'/><div>{' Love writing clean and simple code'}</div></div>
     ]
     return (
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%', marginLeft: '10%', zIndex: 1}}>
+        <div className='about-page-container'>
             <div className='rm-text-h1 animate__animated animate__fadeInUp' style={{marginBottom: 20}}>
                 I build
                 <span style={{color: color.textSecondary}}> apps</span> and
                 <span style={{color: color.textSecondary}}> websites</span></div>
             {
                 details.map((detail, i) =>
-                    <div key={keyPrefix + i} className='rm-text-3 animate__animated animate__slideInLeft'
+                    <div key={keyPrefix + i} className='rm-text-3 animate__animated animate__fadeInLeft'
                         style={{animationDelay: (0.3 * (i + 1)) + 's', marginBottom: 10}}>
-                        <LabelIcon style={{fontSize: 'inherit', verticalAlign: 'middle', marginRight: 5}}/>
                         {detail}
                     </div>)
             }

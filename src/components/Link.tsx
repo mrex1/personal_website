@@ -11,7 +11,7 @@ export interface Props extends React.HTMLProps<HTMLAnchorElement> {
     children?: React.ReactNode;
 }
 
-const Link = ({path, screen, style, children, goto, ...rest}: Props) => {
+const Link = ({path, screen, style, children, goto,...rest}: Props) => {
     const history = useHistory()
     const navigateTo = useCallback(() => {
         if (screen === undefined || goto === undefined) {
@@ -33,7 +33,7 @@ const Link = ({path, screen, style, children, goto, ...rest}: Props) => {
         )
     }
     return (
-        <span onClick={navigateTo} className='rm-link' style={style}>{children}</span>
+        <span onClick={navigateTo} className={`rm-link ${rest.className}`} style={style}>{children}</span>
     )
 }
 

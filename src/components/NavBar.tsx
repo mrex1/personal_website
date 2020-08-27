@@ -2,8 +2,10 @@ import React, {useState, useCallback} from 'react'
 import './NavBar.css'
 import Logo from './Logo'
 import { useLocation, useHistory } from 'react-router-dom'
+import {useMediaQuery} from '@material-ui/core'
 import {pathToName, nameToPath} from '../utils/namePathTranslation'
 import {colors, ScreenName} from '../constants'
+import Drawer from './Drawer'
 
 export interface Props {
     tabs: ScreenName[];
@@ -11,6 +13,7 @@ export interface Props {
 }
 
 const NavBar = ({tabs, goto}: Props) => {
+    const showDrawer = useMediaQuery('(max-width:740px)')
     const history = useHistory()
     const [hover, setHover] = useState<any>({})
     const {pathname} = useLocation()
@@ -36,7 +39,7 @@ const NavBar = ({tabs, goto}: Props) => {
         <div className='navbar-container'>
             <Logo bgColor={color.logoBack} textColor={color.logoText} goHome={getNavigateHandler(ScreenName.home)}/>
             <div className='navbar-space'/>
-            <div className='navbar-tabs'>
+            {!showDrawer && <div className='navbar-tabs'>
             {
                 tabs.map((name) => (
                     <div style={{color: hover[name] === true || curScreenName === name ?
@@ -44,7 +47,8 @@ const NavBar = ({tabs, goto}: Props) => {
                     onMouseOver={hoverHandler(name)} onMouseLeave={hoverEndHandler(name)}>{name}</div>
                 ))
             }
-            </div>
+            </div>}
+            {showDrawer && <Drawer tabs={tabs} currentScreen={curScreenName} goto={goto}/>}
         </div>
     )
 }

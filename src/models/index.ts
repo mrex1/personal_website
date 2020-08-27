@@ -72,4 +72,8 @@ export interface Project {
     image: string;
     description: string;
     github?: string;
+    action?: {
+        path: string;
+        title: string;
+    }
 }

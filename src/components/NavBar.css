@@ -4,6 +4,7 @@
     position: fixed;
     padding: 22px;
     z-index: 1;
+    box-sizing: border-box;
 }
 
 .navbar-space {

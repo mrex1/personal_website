@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import {colors, ScreenName} from '../constants'
 import {Tooltip} from '@material-ui/core'
+import './Contact.css'
 
 export interface Props{
 
@@ -28,10 +29,10 @@ const Contact = (props: Props) => {
     }, [])
 
     return (
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%'}}>
-            <div className='rm-text-h2 animate__animated animate__backInDown'>
+        <div className='Contact-container'>
+            <div className='rm-text-h3 animate__animated animate__backInDown'>
                 {'Email me at '}
-                <Tooltip title={<div className='rm-text-5'>{copied ? 'copied' : 'click to copy'}</div>} placement='top' arrow={true}>
+                <Tooltip open={copied} title={<div className='rm-text-5'>{copied ? 'copied' : 'click to copy'}</div>} placement='top' arrow={true}>
                 <span onClick={copyLink} className='rm-link' style={{color: color.textSecondary}}>rexmo@connect.hku.hk</span>
                 </Tooltip>
             </div>
