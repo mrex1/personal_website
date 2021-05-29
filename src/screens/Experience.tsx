@@ -12,7 +12,7 @@ const Experience = ({darkMode}: Props) => {
     return (
         <div className='Experience-container'>
             <div className='animate__animated animate__flipInX Experience-inner-container' style={{color: color.textSecondary}}>
-            <Timeline experiences={myExperiences}/>
+            <Timeline experiences={myExperiences} darkMode={darkMode}/>
             </div>
         </div>
     )

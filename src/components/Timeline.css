@@ -21,6 +21,11 @@
     box-shadow: 3px 3px 10px rgba(0, 68, 255, 0.54);
 }
 
+.time-line-content-container.dark {
+    background: black;
+    box-shadow: 0px 0px 25px #845600c5;
+}
+
 .time-line-content-inner-container {
     max-height: 350px;
     overflow: auto;
@@ -36,6 +41,10 @@
 a.company-name {
     color: blue !important;
     display: inline-block;
+}
+
+.dark a.company-name {
+    color: yellow !important;
 }
 
 .time-line-bar-outter-container {

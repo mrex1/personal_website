@@ -36,7 +36,7 @@ export type ColorTheme = {
     [darkMode: number]: ColorForScreen
 }
 
-const darkColor: Color = {
+export const darkColor: Color = {
     primary: "black",
     secondary: "#845600",
     textPrimary: "white",

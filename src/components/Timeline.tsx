@@ -3,17 +3,18 @@ import { Grid, useMediaQuery } from '@material-ui/core'
 import {Experiences, Experience} from '../models'
 import TimelineBar from './TimelineBar'
 import TimeText from './TimeText'
-import NavigationOutlinedIcon from '@material-ui/icons/NavigationOutlined';
+import NavigationOutlinedIcon from '@material-ui/icons/NavigationOutlined'
+import {globalProps} from '../models'
 import clsx from 'clsx'
 import './Timeline.css'
 
-export interface Props {
+export interface Props extends globalProps {
     experiences: Experiences;
 }
 
 const keyPrefix = Math.random() + ''
 
-const Timeline = ({experiences}: Props) => {
+const Timeline = ({experiences, darkMode}: Props) => {
     const smallScreen = useMediaQuery('(max-width:735px)')
     const [selExp, setSelExp] = useState<Experience>(experiences.experiences[0])
     const [contentHeight, setContentHeight] = useState<number>()
@@ -41,7 +42,7 @@ const Timeline = ({experiences}: Props) => {
             </div>
             <div className='time-line-right'>
                 {smallScreen && <TimeText startTime={startTime} endTime={endTime}/>}
-                <div className={clsx('time-line-content-container')}>
+                <div className={clsx('time-line-content-container', {dark: darkMode})}>
                     <div className='rm-text-h3'>{jobPost}</div>
                     {companySite ? 
                         <a
