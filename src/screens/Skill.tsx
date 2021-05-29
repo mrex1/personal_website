@@ -2,11 +2,10 @@ import React from 'react'
 import SkillBlock from '../components/SkillBlock'
 import {myskills, Skills} from '../data'
 import {getKeys} from '../utils'
+import {globalProps} from '../models'
 import './Skill.css'
 
-export interface Props{
-
-}
+export interface Props extends globalProps {}
 
 const keyPrefix = Math.random() + ''
 

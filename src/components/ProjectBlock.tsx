@@ -3,15 +3,16 @@ import {Project} from '../models'
 import {colors, ScreenName} from '../constants'
 import Link from '../components/Link'
 import GitHubIcon from '@material-ui/icons/GitHub'
+import {globalProps} from '../models'
 import './ProjectBlock.css'
 
-export interface Props {
+export interface Props extends globalProps {
     project: Project
 }
 
-const ProjectBlock = ({project}: Props) => {
+const ProjectBlock = ({project, darkMode}: Props) => {
     const [hover, setHover] = useState(false)
-    const color = colors[ScreenName.project]
+    const color = colors[darkMode][ScreenName.project]
     return (
         <div className='project-block-container' style={{color: color.textPrimary}}>
             <img className='project-block-image' alt={project.name} src={project.image}/>

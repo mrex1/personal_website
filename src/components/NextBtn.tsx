@@ -5,20 +5,21 @@ import {useLocation, useHistory} from 'react-router-dom'
 import {CircularProgress} from '@material-ui/core'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import clsx from 'clsx'
+import {globalProps} from '../models'
 import './NextBtn.css'
 
-export interface Props {
+export interface Props extends globalProps {
     goto: (callback: () => void) => void;
     loading: boolean;
 }
 
-const NextBtn = ({goto, loading}: Props) => {
+const NextBtn = ({goto, loading, darkMode}: Props) => {
     const history = useHistory()
 	const {pathname} = useLocation()
     const curScreenName = pathToName(pathname)
     const nextScreen = getNextScreen(curScreenName)
     const nextScreenName = getScreenName(nextScreen)
-    const color = colors[nextScreen]
+    const color = colors[darkMode][nextScreen]
 
     const handleNext = useCallback(() => {
         goto(() => history.push(nameToPath(nextScreen)))

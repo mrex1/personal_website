@@ -4,16 +4,17 @@ import clsx from 'clsx'
 import { useLocation } from 'react-router-dom'
 import { colors, reverseMap } from '../constants'
 import {pathToName} from '../utils/namePathTranslation'
+import {globalProps} from '../models'
 
-export interface Props {
+export interface Props extends globalProps {
     children?: React.ReactNode;
     start: boolean;
 }
 
-const Background = ({children, start}: Props) => {
+const Background = ({children, start, darkMode}: Props) => {
     const {pathname} = useLocation()
     const curScreenName = pathToName(pathname)
-    const color = colors[curScreenName]
+    const color = colors[darkMode][curScreenName]
     const reversed = reverseMap[curScreenName]
 
     return (

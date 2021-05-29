@@ -32,7 +32,35 @@ export type ColorForScreen = {
     [key in ScreenName]: Color
 }
 
-export const colors: ColorForScreen = {
+export type ColorTheme = {
+    [darkMode: number]: ColorForScreen
+}
+
+const darkColor: Color = {
+    primary: "black",
+    secondary: "#845600",
+    textPrimary: "white",
+    textSecondary: "orange",
+    inactive: "white",
+    logoBack: "orange",
+    logoText: "black",
+    nextBtn: "black",
+    drawerBtn: "white",
+    drawerBg: "black",
+    drawerText: "white",
+    drawerActive: "orange",
+}
+
+const darkColors: ColorForScreen = {
+    [ScreenName.home]: darkColor,
+    [ScreenName.about]: darkColor,
+    [ScreenName.contact]: darkColor,
+    [ScreenName.experience]: darkColor,
+    [ScreenName.project]: darkColor,
+    [ScreenName.skill]: darkColor
+}
+
+const lightColors: ColorForScreen = {
     [ScreenName.home]: {
         primary: '#FFAA00',
         secondary: 'white',
@@ -95,4 +123,9 @@ export const colors: ColorForScreen = {
         logoText: '#61B48B',
         nextBtn: '#61B48B'
     }
+}
+
+export const colors: ColorTheme = {
+    1: darkColors,
+    0: lightColors
 }
