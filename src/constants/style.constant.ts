@@ -22,6 +22,8 @@ export interface Color {
     logoBack: string;
     logoText: string;
     nextBtn?: string;
+    nextBtnBack?: string;
+    nextBtnShadow?: string;
     drawerBtn?: string;
     drawerBg?: string;
     drawerText?: string;
@@ -37,14 +39,16 @@ export type ColorTheme = {
 }
 
 export const darkColor: Color = {
-    primary: "black",
-    secondary: "#845600",
+    primary: "#222",
+    secondary: "black",
     textPrimary: "white",
     textSecondary: "orange",
     inactive: "white",
     logoBack: "orange",
     logoText: "black",
-    nextBtn: "black",
+    nextBtn: "orange",
+    nextBtnBack: "#222",
+    nextBtnShadow: "rgba(255,255,255,0.3)",
     drawerBtn: "white",
     drawerBg: "black",
     drawerText: "white",

@@ -6,6 +6,7 @@ import {useMediaQuery} from '@material-ui/core'
 import {pathToName, nameToPath} from '../utils/namePathTranslation'
 import {colors, ScreenName} from '../constants'
 import Drawer from './Drawer'
+import DarkModeBtn from './DarkModeBtn'
 import {globalProps} from '../models'
 
 export interface Props extends globalProps {
@@ -35,10 +36,6 @@ const NavBar = ({tabs, goto, setDarkMode, darkMode}: Props) => {
         }
     }, [goto, history, curScreenName])
 
-    const toggleDarkMode = useCallback(() => {
-        setDarkMode(darkMode^1)
-    }, [setDarkMode, darkMode])
-
     const color = colors[darkMode][curScreenName]
 
     return (
@@ -54,10 +51,9 @@ const NavBar = ({tabs, goto, setDarkMode, darkMode}: Props) => {
                     onMouseOver={hoverHandler(name)} onMouseLeave={hoverEndHandler(name)}>{name}</div>
                 ))
             }
-            <div onClick={toggleDarkMode} style={{color: color.textPrimary}}>
-                dark
-            </div>
+            <DarkModeBtn setDarkMode={setDarkMode} darkMode={darkMode} style={{marginRight: 0}}/>
             </div>}
+            {showDrawer && <DarkModeBtn setDarkMode={setDarkMode} darkMode={darkMode} style={{marginRight: 40}}/>}
             {showDrawer && <Drawer tabs={tabs} currentScreen={curScreenName} goto={goto} darkMode={darkMode}/>}
         </div>
     )

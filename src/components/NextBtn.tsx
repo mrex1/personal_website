@@ -28,7 +28,7 @@ const NextBtn = ({goto, loading, darkMode}: Props) => {
     return (
         <div
         className='next-btn animate__animated animate__fadeInRight'
-        style={{color: color.nextBtn}}
+        style={{color: color.nextBtn, backgroundColor: color.nextBtnBack, boxShadow: color.nextBtnShadow && `${color.nextBtnShadow} 3px 3px 15px`}}
         onClick={handleNext}>
             <span className={clsx('next-text', {loading})}>{nextScreenName}</span>
             {!loading && <ArrowForwardIcon className='next-arrow' fontSize='large'/>}

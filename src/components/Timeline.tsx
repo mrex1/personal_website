@@ -7,6 +7,7 @@ import NavigationOutlinedIcon from '@material-ui/icons/NavigationOutlined'
 import {globalProps} from '../models'
 import clsx from 'clsx'
 import './Timeline.css'
+import { colors, ScreenName } from '../constants'
 
 export interface Props extends globalProps {
     experiences: Experiences;
@@ -33,6 +34,7 @@ const Timeline = ({experiences, darkMode}: Props) => {
     const {startDate, endDate, jobPost, company, description, companySite} = selExp
     const startTime = startDate.getTime()
     const endTime = endDate.getTime()
+    const color = colors[darkMode][ScreenName.experience]
 
     return (
         <Grid container className='time-line-container' alignItems='center' justify='center' style={{flexWrap: 'nowrap'}}>
@@ -43,7 +45,7 @@ const Timeline = ({experiences, darkMode}: Props) => {
             <div className='time-line-right'>
                 {smallScreen && <TimeText startTime={startTime} endTime={endTime}/>}
                 <div className={clsx('time-line-content-container', {dark: darkMode})}>
-                    <div className='rm-text-h3'>{jobPost}</div>
+                    <div className='rm-text-h3' style={{color: color.textSecondary}}>{jobPost}</div>
                     {companySite ? 
                         <a
                         className='rm-text-6 company-name'
