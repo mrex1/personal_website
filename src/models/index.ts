@@ -77,3 +77,7 @@ export interface Project {
         title: string;
     }
 }
+
+export interface globalProps {
+    darkMode: number;
+}

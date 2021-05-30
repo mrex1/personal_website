@@ -2,9 +2,10 @@ import React, { useState, useCallback } from 'react'
 import {ScreenName, colors} from '../constants'
 import Link from '../components/Link'
 import clsx from 'clsx'
+import {globalProps} from '../models'
 import './Drawer.css'
 
-export interface Props {
+export interface Props extends globalProps {
     tabs: ScreenName[];
     currentScreen: ScreenName;
     goto: (callback: () => void) => void;
@@ -12,10 +13,10 @@ export interface Props {
 
 const keyPrefix = Math.random() + ''
 
-const Drawer = ({tabs, currentScreen, goto}: Props) => {
+const Drawer = ({tabs, currentScreen, goto, darkMode}: Props) => {
     const [show, setShow] = useState(false)
     const [hoveringTab, setHoveringTab] = useState<ScreenName | null>(null)
-    const color = colors[currentScreen]
+    const color = colors[darkMode][currentScreen]
     const closeDrawer = useCallback(() => {
         setShow(false)
     }, [])

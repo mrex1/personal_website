@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
 	HashRouter,
 	Switch,
@@ -29,14 +29,27 @@ function useTransition() {
 
 function App() {
 	const [ending, goto] = useTransition()
-	
+	const [darkMode, setDarkMode] = useState(0)
+	useEffect(() => {
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			setDarkMode(1)
+		}
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+			if (event.matches) {
+				setDarkMode(1)
+			} else {
+				setDarkMode(0)
+			}
+		})
+	}, [])
 	return (
 		<HashRouter basename='/'>
-		<Background start={!ending}>
-			<NavBar tabs={tabs} goto={goto}/>
+		<Background start={!ending} darkMode={darkMode}>
+			<NavBar tabs={tabs} goto={goto} setDarkMode={setDarkMode} darkMode={darkMode}/>
             <NextBtn
 			loading={ending}
-			goto={goto}/>
+			goto={goto}
+			darkMode={darkMode}/>
 			<Switch>
 				{
 					Object.keys(routes)
@@ -45,7 +58,7 @@ function App() {
 						const Screen = routes[path]
 						return (
 							<Route path={path} key={path}>
-								{props => <Screen {...props} goto={goto}/>}
+								{props => <Screen {...props} goto={goto} darkMode={darkMode}/>}
 							</Route>
 						)
 					})

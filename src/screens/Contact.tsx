@@ -1,14 +1,13 @@
 import React, { useCallback, useState } from 'react'
 import {colors, ScreenName} from '../constants'
 import {Tooltip} from '@material-ui/core'
+import {globalProps} from '../models'
 import './Contact.css'
 
-export interface Props{
+export interface Props extends globalProps{}
 
-}
-
-const Contact = (props: Props) => {
-    const color = colors[ScreenName.contact]
+const Contact = ({darkMode}: Props) => {
+    const color = colors[darkMode][ScreenName.contact]
     const [copied, setCopied] = useState(false)
     const copyLink = useCallback(() => {
         const textArea = document.createElement("textarea");
@@ -29,7 +28,7 @@ const Contact = (props: Props) => {
     }, [])
 
     return (
-        <div className='Contact-container'>
+        <div className='Contact-container' style={{color: color.textPrimary}}>
             <div className='rm-text-h3 animate__animated animate__backInDown'>
                 {'Email me at '}
                 <Tooltip open={copied} title={<div className='rm-text-5'>{copied ? 'copied' : 'click to copy'}</div>} placement='top' arrow={true}>

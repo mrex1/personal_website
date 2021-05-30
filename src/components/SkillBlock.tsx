@@ -1,9 +1,11 @@
 import React, { useCallback } from 'react'
 import {SkillCategory, Skill, SkillLevel} from '../models'
 import {Grid} from '@material-ui/core'
+import clsx from 'clsx'
+import {globalProps} from '../models'
 import './SkillBlock.css'
 
-export interface Props {
+export interface Props extends globalProps {
     category: SkillCategory;
     skills: Skill[];
 }
@@ -48,9 +50,9 @@ const SkillItem = (skill: Skill) => {
 
 const keyPrefix = Math.random() + ''
 
-const SkillBlock = ({category, skills}: Props) => {
+const SkillBlock = ({category, skills, darkMode}: Props) => {
     return (
-        <div className='skill-block-container'>
+        <div className={clsx('skill-block-container', {dark: darkMode})}>
             <div className='skill-block-category'>{category}</div>
             {skills.map((skill, i) => <SkillItem key={keyPrefix + i} {...skill}/>)}
         </div>

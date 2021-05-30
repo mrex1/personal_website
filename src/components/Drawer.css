@@ -2,7 +2,7 @@
     height: 34px;
     width: 34px;
     right: 22px;
-    position: fixed;
+    position: relative;
     cursor: pointer;
     transition: .6s;
 }

@@ -5,6 +5,7 @@
     padding: 22px;
     z-index: 1;
     box-sizing: border-box;
+    align-items: center;
 }
 
 .navbar-space {

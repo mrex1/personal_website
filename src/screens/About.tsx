@@ -4,17 +4,18 @@ import Link from '../components/Link'
 import GraducationCap from '../images/graduationCap.png'
 import SmileWithHeart from '../images/smileWithHeart.png'
 import Suitcase from '../images/suitcase.png'
+import {globalProps} from '../models'
 import './About.css'
 
-export interface Props{
+export interface Props extends globalProps{
     goto: (callback: () => void) => void;
     history: any;
 }
 
 const keyPrefix = Math.random() + ''
 
-const About = ({history, goto}: Props) => {
-    const color = colors[ScreenName.about]
+const About = ({history, goto, darkMode}: Props) => {
+    const color = colors[darkMode][ScreenName.about]
     const details = [
         <div style={{display: 'flex'}}>
             <img src={GraducationCap} alt='' className='rm-emoji'/>
@@ -39,7 +40,7 @@ const About = ({history, goto}: Props) => {
         <div style={{display: 'flex'}}><img src={SmileWithHeart} alt='' className='rm-emoji'/><div>{' Love writing clean and simple code'}</div></div>
     ]
     return (
-        <div className='about-page-container'>
+        <div className='about-page-container' style={{color: color.textPrimary}}>
             <div className='rm-text-h1 animate__animated animate__fadeInUp' style={{marginBottom: 20}}>
                 I build
                 <span style={{color: color.textSecondary}}> apps</span> and
