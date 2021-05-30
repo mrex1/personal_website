@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
 	HashRouter,
 	Switch,
@@ -30,7 +30,18 @@ function useTransition() {
 function App() {
 	const [ending, goto] = useTransition()
 	const [darkMode, setDarkMode] = useState(0)
-	
+	useEffect(() => {
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			setDarkMode(1)
+		}
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+			if (event.matches) {
+				setDarkMode(1)
+			} else {
+				setDarkMode(0)
+			}
+		})
+	}, [])
 	return (
 		<HashRouter basename='/'>
 		<Background start={!ending} darkMode={darkMode}>
